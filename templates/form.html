@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>{{ title }}</title>
+    <link rel="stylesheet"
+          href="{{ url_for('static', filename='style.css') }}">
+</head>
+
+<body>
+
+<div class="container">
+
+    <h1>{{ title }}</h1>
+
+    {% with messages = get_flashed_messages() %}
+        {% if messages %}
+            {% for message in messages %}
+                <div class="error">
+                    {{ message }}
+                </div>
+            {% endfor %}
+        {% endif %}
+    {% endwith %}
+
+    <form method="POST" class="product-form">
+
+        <label for="product_id">ID</label>
+        <input
+            id="product_id"
+            type="number"
+            name="product_id"
+            value="{{ product['product_id'] if product else '' }}"
+            required
+        >
+
+        <label for="name">Name</label>
+        <input
+            id="name"
+            type="text"
+            name="name"
+            value="{{ product['name'] if product else '' }}"
+            required
+        >
+
+        <label for="price">Price</label>
+        <input
+            id="price"
+            type="number"
+            step="0.01"
+            name="price"
+            value="{{ product['price'] if product else '' }}"
+            required
+        >
+
+        <label for="special">Special</label>
+        <select id="special" name="special" required>
+
+            <option value="">Select value</option>
+
+            <option value="No"
+                {% if product and product['special'] == 'No' %}
+                    selected
+                {% endif %}>
+                No
+            </option>
+
+            <option value="Yes"
+                {% if product and product['special'] == 'Yes' %}
+                    selected
+                {% endif %}>
+                Yes
+            </option>
+
+        </select>
+
+        <label for="date_added">Date Added</label>
+        <input
+            id="date_added"
+            type="date"
+            name="date_added"
+            value="{{ product['date_added'] if product else today }}"
+            required
+        >
+
+        <div class="form-buttons">
+            <button type="submit">Save</button>
+            <a href="{{ url_for('index') }}">Cancel</a>
+        </div>
+
+    </form>
+
+</div>
+
+</body>
+</html>
