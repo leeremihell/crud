@@ -186,9 +186,24 @@ def edit_product(row_id):
                 today=date.today().isoformat()
             )
 
-        # BUG:
-        # Here we do not check whether another product
-        # already has the same product_id.
+        existing_product = conn.execute(
+            """
+            SELECT * FROM products
+            WHERE product_id = ? AND rowid != ?
+            """,
+            (product_id, row_id)
+        ).fetchone()
+        
+        if existing_product:
+            conn.close()
+            flash("Product with this ID already exists.")
+        
+            return render_template(
+                "form.html",
+                title="Edit product",
+                product=product,
+                today=date.today().isoformat()
+            )
 
         conn.execute("""
             UPDATE products
