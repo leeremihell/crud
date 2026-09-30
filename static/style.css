@@ -1,0 +1,93 @@
+body {
+    font-family: Arial, sans-serif;
+    background: #f5f5f5;
+    margin: 0;
+}
+
+.container {
+    width: 900px;
+    margin: 40px auto;
+    background: white;
+    padding: 25px;
+    border: 1px solid #ccc;
+}
+
+h1 {
+    margin-top: 0;
+}
+
+.toolbar {
+    margin-bottom: 20px;
+}
+
+.toolbar a {
+    margin-right: 15px;
+}
+
+.toolbar span {
+    margin-left: 20px;
+    margin-right: 5px;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+th,
+td {
+    border: 1px solid #ccc;
+    padding: 10px;
+    text-align: left;
+}
+
+th {
+    background: #eee;
+}
+
+.product-form {
+    width: 400px;
+}
+
+.product-form label {
+    display: block;
+    margin-top: 15px;
+    margin-bottom: 5px;
+}
+
+.product-form input,
+.product-form select {
+    width: 100%;
+    padding: 8px;
+    box-sizing: border-box;
+}
+
+.form-buttons {
+    margin-top: 20px;
+}
+
+button {
+    padding: 6px 12px;
+    cursor: pointer;
+}
+
+.form-buttons a {
+    margin-left: 15px;
+}
+
+.delete-form {
+    display: inline;
+    margin-left: 10px;
+}
+
+.message {
+    padding: 10px;
+    background: #e8f4e8;
+    margin-bottom: 15px;
+}
+
+.error {
+    padding: 10px;
+    background: #f8dddd;
+    margin-bottom: 15px;
+}
